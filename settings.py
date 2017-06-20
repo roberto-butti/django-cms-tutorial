@@ -11,7 +11,6 @@ INSTALLED_ADDONS = [
     'aldryn-newsblog',
     'djangocms-googlemap',
     'djangocms-history',
-    'djangocms-link',
     'djangocms-picture',
     'djangocms-snippet',
     'djangocms-style',
