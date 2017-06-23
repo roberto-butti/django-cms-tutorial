@@ -1,16 +1,20 @@
 {% load staticfiles i18n cms_tags sekizai_tags menu_tags %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}">
 
 <head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="{% page_attribute 'meta_description' %}">
+    <meta name="author" content="Roberto B.">
 
-    <title>Clean Blog - About</title>
+    <title>
+        {% block title %}
+            {% page_attribute "page_title" %} - {{ request.site.name }}
+        {% endblock title %}
+    </title>
 <!-- Bootstrap Core CSS -->
 <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
@@ -66,7 +70,7 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+                <a class="navbar-brand" href="/">{{ request.site.name }}</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -139,7 +143,7 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
+                    <p class="copyright text-muted">Copyright &copy; {{ request.site.name }} {% now "Y" %}</p>
                 </div>
             </div>
         </div>
